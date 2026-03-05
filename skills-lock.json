@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "react-native-architecture": {
+      "source": "wshobson/agents",
+      "sourceType": "github",
+      "computedHash": "6b52fafc80d1e78243e56ff42114128ba456f515b383a11a792541d999ace652"
+    },
+    "vercel-react-native-skills": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "a804b4e848059822638c390359976f7021380bcefb1469d473aa4e9202c15ecb"
+    }
+  }
+}
