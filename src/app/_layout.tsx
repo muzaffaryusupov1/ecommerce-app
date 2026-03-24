@@ -1,11 +1,13 @@
 import { useEffect } from 'react';
 
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 import '../styles/global.css';
 
@@ -38,11 +40,15 @@ export default function RootLayout() {
 
 	return (
 		<ThemeProvider value={isDark ? DarkTheme : DefaultTheme}>
-			<Stack>
-				<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-				<Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
-			</Stack>
-			<StatusBar style={isDark ? 'light' : 'dark'} />
+			<GestureHandlerRootView className='flex-1'>
+				<BottomSheetModalProvider>
+					<Stack>
+						<Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+						<Stack.Screen name='modal' options={{ presentation: 'modal', title: 'Modal' }} />
+					</Stack>
+				</BottomSheetModalProvider>
+				<StatusBar style={isDark ? 'light' : 'dark'} />
+			</GestureHandlerRootView>
 		</ThemeProvider>
 	);
 }
